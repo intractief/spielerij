@@ -1,0 +1,10 @@
+image: maven:3.9-eclipse-temurin-21-alpine
+
+mvn:verify:
+  stage: test
+  script:
+    - "mvn verify"
+  artifacts:
+    reports:
+      junit:
+        - "**/target/surefire-reports/*.xml"
