@@ -1,4 +1,4 @@
-package org.example;
+package nl.intractief.spielerij;
 
 /**
  * Hello world!
