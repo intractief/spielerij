@@ -12,3 +12,17 @@ Een dartbord bestaat uit 20 taartpunten die onderverdeeld zijn in ringen.
 - In het midden zit de bulsseye (buitenste ring is 25, binnenste is 50)
 - Uitgooien moet met een dubbel.
 
+### Setup
+
+Voor lokaal
+
+* install https://sdkman.io
+* `sdk i java 21.0.3-tem`
+* `sdk install maven`
+* gebruik https://www.jetbrains.com/idea/ of https://code.visualstudio.com
+
+run tests (of gebruik de IDE run options)
+
+```bash
+mvn verify
+```
