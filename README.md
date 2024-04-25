@@ -2,6 +2,8 @@
 
 Bereken hoeveel verschillende manier je kan uitgooien vanaf score 90.
 
+De opdracht begint in [DartScoreTest](src/test/java/nl/intractief/spielerij/dart/DartScoreTest.java)
+
 ### Dart uitleg
 
 Een dartbord bestaat uit 20 taartpunten die onderverdeeld zijn in ringen.
