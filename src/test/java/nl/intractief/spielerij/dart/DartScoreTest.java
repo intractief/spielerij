@@ -50,13 +50,15 @@ public class DartScoreTest {
     @CsvSource({
             "5,10",
             "10,9",
-            "96,1337"
+            "90,1337"
     })
     void mogelijkeFinishesVanaf(int startScore,int mogelijkeFinishes) {
         //FIXME: hoeveel mogelijke finishes zijn er vanaf start score
 
         //FIXME: verzin (of filter) alle mogelijke scores vanaf start score
 
-        List<DartScore> darts = List.of();//ntb
+        List<DartTurn> beurten = List.of();//ntb
+
+        assertEquals(mogelijkeFinishes,beurten.size());
     }
 }
