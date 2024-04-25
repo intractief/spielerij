@@ -6,6 +6,8 @@ De opdracht begint in [DartScoreTest](src/test/java/nl/intractief/spielerij/dart
 
 ### Dart uitleg
 
+![Dartboard!](https://nl.m.wikipedia.org/wiki/Bestand:Dartboard.svg)
+
 Een dartbord bestaat uit 20 taartpunten die onderverdeeld zijn in ringen.
 - Elke punt heeft een basiscore (1 tot 20)
 - De buitenste ring telt dubbel
