@@ -2,7 +2,6 @@ package nl.intractief.spielerij.dart;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 record DartScore(int score, ScoreType type) {
     static final List<DartScore> ALL = allPossibleScoresWithOneDart();
