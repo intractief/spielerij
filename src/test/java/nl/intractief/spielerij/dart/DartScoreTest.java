@@ -14,6 +14,7 @@ public class DartScoreTest {
             "1,SINGLE,1",
             "20,TRIPLE,60",
             "19,TRIPLE,57",
+            // hier kun je extra tests toevoegen
             "10,DOUBLE,20",
             "10,SINGLE,10"
     })
