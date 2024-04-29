@@ -1,3 +1,7 @@
+permissions:
+  checks: write
+  contents: write
+
 name: mvn
 on:
   push:
@@ -23,3 +27,5 @@ jobs:
       if: success() || failure()
       with:
         report_paths: '**/surefire-reports/TEST-*.xml'
+    - name: dependency report
+      uses: advanced-security/maven-dependency-submission-action@v3
