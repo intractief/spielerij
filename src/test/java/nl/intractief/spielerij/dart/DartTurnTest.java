@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,18 +81,16 @@ class DartTurnTest {
 
     @ParameterizedTest
     @CsvSource({
-            "5,10",
-            "10,9",
-            "90,1337"
+            "5,7",
+            "10,55",
+            "90,805"
     })
     void mogelijkeFinishesVanaf(int startScore,int mogelijkeFinishes) {
-        //FIXME: hoeveel mogelijke finishes zijn er vanaf start score
-
-        //FIXME: verzin (of filter) alle mogelijke scores vanaf start score
-        List<DartTurn> beurten = DartTurn.all()
+        var beurten = DartTurn.all()
                 .filter(DartTurn::lastIsDouble)
-                .toList();//ntb
+                .filter(turn -> turn.berekenScore()==startScore)
+                .count();
 
-        assertEquals(mogelijkeFinishes,beurten.size());
+        assertEquals(mogelijkeFinishes,beurten);
     }
 }
