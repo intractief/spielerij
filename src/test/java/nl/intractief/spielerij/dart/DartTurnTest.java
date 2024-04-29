@@ -83,14 +83,16 @@ class DartTurnTest {
     @CsvSource({
             "5,7",
             "10,55",
-            "90,805"
+            "90,805",
+            "160,2",
+            "161,0"
     })
     void mogelijkeFinishesVanaf(int startScore,int mogelijkeFinishes) {
         var beurten = DartTurn.all()
                 .filter(DartTurn::lastIsDouble)
                 .filter(turn -> turn.berekenScore()==startScore)
-                .count();
+                .toList();
 
-        assertEquals(mogelijkeFinishes,beurten);
+        assertEquals(mogelijkeFinishes,beurten.size());
     }
 }
