@@ -85,9 +85,13 @@ class DartTurnTest {
             "5,7",
             "10,55",
             "90,805",
+            "92,773",
+            "96,640",
             "160,3",
             "161,4",
             "162,0",
+            "167,2",
+            "168,0",
             "170,1"
     })
     void mogelijkeFinishesVanaf(int startScore,int mogelijkeFinishes) {
