@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -84,8 +85,10 @@ class DartTurnTest {
             "5,7",
             "10,55",
             "90,805",
-            "160,2",
-            "161,0"
+            "160,3",
+            "161,4",
+            "162,0",
+            "170,1"
     })
     void mogelijkeFinishesVanaf(int startScore,int mogelijkeFinishes) {
         var beurten = DartTurn.all()
@@ -94,5 +97,16 @@ class DartTurnTest {
                 .toList();
 
         assertEquals(mogelijkeFinishes,beurten.size());
+    }
+
+    @Test
+    void alleMogelijkeFinishes() {
+        var finishes = DartTurn.all()
+                .filter(DartTurn::lastIsDouble)
+                .collect(Collectors.groupingBy(DartTurn::berekenScore, Collectors.counting()));
+
+        assertEquals(4,finishes.get(161));
+        var highestFinish = finishes.keySet().stream().max(Integer::compareTo).orElseThrow();
+        assertEquals(170,highestFinish);
     }
 }

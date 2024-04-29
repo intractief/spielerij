@@ -22,4 +22,9 @@ record DartScore(int score, ScoreType type) {
     int berekenScore() {
         return score()* type().multiplier();
     }
+
+    @Override
+    public String toString() {
+        return type.toString().toLowerCase()+score;
+    }
 }
