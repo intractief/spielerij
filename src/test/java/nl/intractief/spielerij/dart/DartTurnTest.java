@@ -39,14 +39,14 @@ class DartTurnTest {
             "9,TRIPLE,DOUBLE,,45",
             "2,DOUBLE,,,4"
     })
-    void score(int base,ScoreType first,ScoreType second,ScoreType third,int expected) {
+    void berekenScore(int base,ScoreType first,ScoreType second,ScoreType third,int expected) {
         var firstDart = Optional.ofNullable(first).map(t -> new DartScore(base,t)).orElse(null);
         var secondDart = Optional.ofNullable(second).map(t -> new DartScore(base,t)).orElse(null);
         var thirtDart = Optional.ofNullable(third).map(t -> new DartScore(base,t)).orElse(null);
 
         var turn = new DartTurn(firstDart,secondDart,thirtDart);
 
-        assertEquals(expected,turn.score());
+        assertEquals(expected,turn.berekenScore());
     }
 
 

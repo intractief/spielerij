@@ -52,7 +52,7 @@ public record DartTurn(DartScore first, DartScore second, DartScore third) {
                 .isPresent();
     }
 
-    int score() {
-        return darts().mapToInt(DartScore::score).sum();
+    int berekenScore() {
+        return darts().mapToInt(DartScore::berekenScore).sum();
     }
 }
