@@ -10,12 +10,21 @@ record DartScore(int score, ScoreType type) {
         List<DartScore> result = new ArrayList<>();
         for(int i=1;i<=20;i++) {
             result.add(new DartScore(i, ScoreType.SINGLE));
+            result.add(new DartScore(i, ScoreType.DOUBLE));
+            result.add(new DartScore(i, ScoreType.TRIPLE));
             //TODO: not complete
         }
+        result.add(new DartScore(25,ScoreType.DOUBLE ));
+        result.add(new DartScore(25,ScoreType.SINGLE));
         return result;
     }
 
     int berekenScore() {
-        return score();
+        return score()* type().multiplier();
+    }
+
+    @Override
+    public String toString() {
+        return type.toString().toLowerCase()+score;
     }
 }
