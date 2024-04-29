@@ -30,6 +30,26 @@ class DartTurnTest {
         assertTrue(turn.lastIsDouble());
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "6,SINGLE,TRIPLE,DOUBLE,36",
+            "2,SINGLE,SINGLE,DOUBLE,8",
+            "20,TRIPLE,TRIPLE,DOUBLE,160",
+            "1,TRIPLE,DOUBLE,,5",
+            "9,TRIPLE,DOUBLE,,45",
+            "2,DOUBLE,,,4"
+    })
+    void score(int base,ScoreType first,ScoreType second,ScoreType third,int expected) {
+        var firstDart = Optional.ofNullable(first).map(t -> new DartScore(base,t)).orElse(null);
+        var secondDart = Optional.ofNullable(second).map(t -> new DartScore(base,t)).orElse(null);
+        var thirtDart = Optional.ofNullable(third).map(t -> new DartScore(base,t)).orElse(null);
+
+        var turn = new DartTurn(firstDart,secondDart,thirtDart);
+
+        assertEquals(expected,turn.score());
+    }
+
+
     @Test
     void possibilitiesWithOneDart() {
         var turns = DartTurn.possibilitiesWithOneDart().toList();

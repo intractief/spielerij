@@ -34,20 +34,25 @@ public record DartTurn(DartScore first, DartScore second, DartScore third) {
                 .map(score -> new DartTurn(score,null,null));
     }
 
-    private
-
-    Optional<DartScore> last() {
+    private Stream<DartScore> darts() {
         return Stream.of(
                 third(),
                 second(),
                 first()
-        ).filter(Objects::nonNull)
-        .findFirst();
+        ).filter(Objects::nonNull);
+    }
+
+    private Optional<DartScore> last() {
+        return darts().findFirst();
     }
 
     boolean lastIsDouble() {
         return last()
                 .filter(s -> ScoreType.DOUBLE.equals(s.type()))
                 .isPresent();
+    }
+
+    int score() {
+        return darts().mapToInt(DartScore::score).sum();
     }
 }
