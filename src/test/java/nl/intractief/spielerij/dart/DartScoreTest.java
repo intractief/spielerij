@@ -24,11 +24,12 @@ public class DartScoreTest {
     }
 
     @Test
-    void alleDartScoresMet1Pijl() {
-        var scores = DartScore.allPossibleScoresWithOneDart();
+    void alleDartScoresMet1PijlAantal() {
+        assertEquals(62,DartScore.allPossibleScoresWithOneDart().count());
+    }
 
-        assertEquals(62,scores.size());
-
-        assertEquals(1335,scores.stream().mapToInt(DartScore::berekenScore).sum());
+    @Test
+    void alleDartScoresMet1PijlSum() {
+        assertEquals(1335,DartScore.allPossibleScoresWithOneDart().mapToInt(DartScore::berekenScore).sum());
     }
 }
