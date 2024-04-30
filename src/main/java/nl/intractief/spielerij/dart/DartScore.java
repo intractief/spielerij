@@ -8,13 +8,18 @@ record DartScore(int score, ScoreType type) {
     static final List<DartScore> ALL = allPossibleScoresWithOneDart().toList();
 
     static Stream<DartScore> allPossibleScoresWithOneDart() {
-        var singles = IntStream.rangeClosed(1,20).mapToObj(i -> new DartScore(i, ScoreType.SINGLE));
-        var doubles = IntStream.rangeClosed(1,20).mapToObj(i -> new DartScore(i, ScoreType.DOUBLE));
-        var triples = IntStream.rangeClosed(1,20).mapToObj(i -> new DartScore(i, ScoreType.TRIPLE));
-        var bulls = Stream.of(new DartScore(25,ScoreType.DOUBLE ),new DartScore(25,ScoreType.SINGLE));
-        var singlesAndDoubles = Stream.concat(singles,doubles);
-        var triplesAndBulls = Stream.concat(triples,bulls);
+        var singlesAndDoubles = Stream.concat(
+                allForType(ScoreType.SINGLE),
+                allForType(ScoreType.DOUBLE));
+        var triplesAndBulls = Stream.concat(
+                allForType(ScoreType.TRIPLE),
+                Stream.of(new DartScore(25,ScoreType.DOUBLE ),new DartScore(25,ScoreType.SINGLE)));
         return Stream.concat(singlesAndDoubles,triplesAndBulls);
+    }
+
+    static Stream<DartScore> allForType(ScoreType type) {
+        return IntStream.rangeClosed(1, 20)
+                .mapToObj(i -> new DartScore(i, type));
     }
 
     int berekenScore() {

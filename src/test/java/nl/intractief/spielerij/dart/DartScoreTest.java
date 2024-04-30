@@ -24,6 +24,13 @@ public class DartScoreTest {
     }
 
     @Test
+    void allForType() {
+        var singles = DartScore.allForType(ScoreType.SINGLE).toList();
+
+        assertEquals(20,singles.size());
+    }
+
+    @Test
     void alleDartScoresMet1PijlAantal() {
         assertEquals(62,DartScore.allPossibleScoresWithOneDart().count());
     }
